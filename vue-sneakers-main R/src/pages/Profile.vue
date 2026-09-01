@@ -93,8 +93,7 @@ const def = async () =>{
 
 const fetchItemsProf = async () => {
   try{
-
-        const { data } = await axios.get('https://2c0c2b705f18f99a.mokky.dev/items') 
+        const { data } = await axios.get('https://2c0c2b705f18f99a.mokky.dev/orders')
         profile.value = data.filter(order => order.mail === SignInPerson.value)
     }catch(e){
         console.log(e);

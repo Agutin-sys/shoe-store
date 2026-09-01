@@ -42,8 +42,7 @@ defineProps({
 onMounted(async () => 
 {
     try{ 
-      const { data } = await axios.get('https://2c0c2b705f18f99a.mokky.dev/favorites')
-     
+      const { data } = await axios.get('https://2c0c2b705f18f99a.mokky.dev/favorites?_relations=items')
       favorites.value = data.map(obj => obj.item)
       dop.value = data
     }catch(e){

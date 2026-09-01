@@ -30,7 +30,13 @@ try{
     params.title = `*${filters.searchQuery}*`;
   }
 
-  const { data } =  await axios.get('https://2c0c2b705f18f99a.mokky.dev/items')
+
+  const { data } = await axios.get(
+    `https://2c0c2b705f18f99a.mokky.dev/items`,{
+
+      params
+
+    })
 
    items.value  = data.map((obj) => ({
     ...obj,
@@ -47,7 +53,7 @@ const fetchFavorytes = async () => {
 try{
 
   const { data: favorites } = await axios.get(`https://2c0c2b705f18f99a.mokky.dev/favorites`)
- 
+
    items.value  = items.value.map(item => {
     const favorite = favorites.find(favorite => favorite.item_id === item.id);
 

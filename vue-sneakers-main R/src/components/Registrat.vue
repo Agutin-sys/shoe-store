@@ -94,9 +94,7 @@ const login = async () => {
     return
   }
 
-  //  const { data } = await axios.get('')
-
-   const { data } = [{"username":"register999@gmail.com","password":"7567551","id":1},{"username":"regi654ster999@gmail.com","password":"7567551","id":2},{"username":"regi655675676754ster999@gmail.com","password":"7567567","id":3}]
+   const { data } = await axios.get('https://2c0c2b705f18f99a.mokky.dev/people')
   
     if(data.some(user => user.username === username.value)){
     alert('Эта почта уже занята')
@@ -109,7 +107,7 @@ const login = async () => {
     password: password.value,
  }
 
-    await axios.post('', 
+    await axios.post('https://2c0c2b705f18f99a.mokky.dev/people', 
     obj
     )
 
