@@ -94,7 +94,7 @@ const def = async () =>{
 const fetchItemsProf = async () => {
   try{
 
-        const { data } = [{"items":[{"id":10,"title":"Кроссовки Adidas Ultraboost","price":11500,"imageUrl":"/sneakers/sneakers-10.jpg","isFavorite":false,"favoritesId":null,"isAdded":true},{"id":6,"title":"Кроссовки Black Edition","price":16999,"imageUrl":"/sneakers/sneakers-6.jpg","isFavorite":false,"favoritesId":null,"isAdded":true}],"totalPrice":28499,"mail":"regi654ster999@gmail.com","id":2},{"items":[{"id":10,"title":"Кроссовки Adidas Ultraboost","price":11500,"imageUrl":"/sneakers/sneakers-10.png","isFavorite":true,"favoritesId":1,"isAdded":true},{"id":6,"title":"Кроссовки Black Edition","price":16999,"imageUrl":"/sneakers/sneakers-6.png","isFavorite":true,"favoritesId":2,"isAdded":true},{"id":12,"title":"Кроссовки Converse Chuck Taylor All-Star","price":13000,"imageUrl":"/sneakers/sneakers-12.png","isFavorite":false,"favoritesId":null,"isAdded":true},{"id":5,"title":"Кроссовки Future Rider","price":9550,"imageUrl":"/sneakers/sneakers-5.png","isFavorite":false,"favoritesId":null,"isAdded":true},{"id":11,"title":"Кроссовки Puma Clyde All-Pro","price":7600,"imageUrl":"/sneakers/sneakers-11.png","isFavorite":false,"favoritesId":null,"isAdded":true},{"id":7,"title":"Кроссовки Orange Boomb Edition","price":7499,"imageUrl":"/sneakers/sneakers-7.png","isFavorite":true,"favoritesId":3,"isAdded":true}],"totalPrice":66148,"mail":"register999@gmail.com","id":3}]
+        const { data } = await axios.get('https://2c0c2b705f18f99a.mokky.dev/items') 
         profile.value = data.filter(order => order.mail === SignInPerson.value)
     }catch(e){
         console.log(e);
@@ -104,7 +104,7 @@ const fetchItemsProf = async () => {
 const deleteOrder = async (index) => {
 
     try {
-    await axios.delete(`ссылка/${index}`)
+    await axios.delete(`https://2c0c2b705f18f99a.mokky.dev/orders/${index}`)
 
     profile.value = profile.value.filter(order => order.id !== index)
 

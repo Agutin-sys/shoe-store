@@ -30,7 +30,7 @@ try{
     params.title = `*${filters.searchQuery}*`;
   }
 
-  const  data  = [{"id":1,"title":"Мужские Кроссовки Nike Blazer Mid Suede","price":12999,"imageUrl":"/sneakers/sneakers-1.png"},{"id":2,"title":"Мужские Кроссовки Nike Air Max 270","price":15600,"imageUrl":"/sneakers/sneakers-2.png"},{"id":3,"title":"Мужские Кроссовки Nike Blazer Mid Suede","price":8499,"imageUrl":"/sneakers/sneakers-3.png"},{"id":4,"title":"Кроссовки Puma X Aka Boku Future Rider","price":7800,"imageUrl":"/sneakers/sneakers-4.png"},{"id":5,"title":"Кроссовки Future Rider","price":9550,"imageUrl":"/sneakers/sneakers-5.png"},{"id":6,"title":"Кроссовки Black Edition","price":16999,"imageUrl":"/sneakers/sneakers-6.png"},{"id":7,"title":"Кроссовки Orange Boomb Edition","price":7499,"imageUrl":"/sneakers/sneakers-7.png"},{"id":8,"title":"Кроссовки Nike Air Max 270","price":15600,"imageUrl":"/sneakers/sneakers-8.png"},{"id":9,"title":"Кроссовки Nike Air Force 1","price":5900,"imageUrl":"/sneakers/sneakers-9.png"},{"id":10,"title":"Кроссовки Adidas Ultraboost","price":11500,"imageUrl":"/sneakers/sneakers-10.png"},{"id":11,"title":"Кроссовки Puma Clyde All-Pro","price":7600,"imageUrl":"/sneakers/sneakers-11.png"},{"id":12,"title":"Кроссовки Converse Chuck Taylor All-Star","price":13000,"imageUrl":"/sneakers/sneakers-12.png"}]
+  const { data } =  await axios.get('https://2c0c2b705f18f99a.mokky.dev/items')
 
    items.value  = data.map((obj) => ({
     ...obj,
@@ -46,9 +46,8 @@ const fetchFavorytes = async () => {
  
 try{
 
-  // const { data: favorites } = await axios.get(``)
-  const { data: favorites } = [{"item_id":7,"id":3},{"item_id":8,"id":4},{"item_id":12,"id":9},{"item_id":6,"id":10}]
-
+  const { data: favorites } = await axios.get(`https://2c0c2b705f18f99a.mokky.dev/favorites`)
+ 
    items.value  = items.value.map(item => {
     const favorite = favorites.find(favorite => favorite.item_id === item.id);
 
@@ -75,14 +74,14 @@ try{
       }
       item.isFavorite = true
 
-      const {data} = await axios.post(`ссылка`, obj)
+      const {data} = await axios.post(`https://2c0c2b705f18f99a.mokky.dev/favorites`, obj)
       
       item.favoritesId = data.id
 
    }else{
     item.isFavorite = false;
  
-    await axios.delete(`ссылка${item.favoritesId}`)
+    await axios.delete(`https://2c0c2b705f18f99a.mokky.dev/favorites/${item.favoritesId}`)
     item.favoritesId = null;
    }
     }catch(e){

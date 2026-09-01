@@ -42,8 +42,8 @@ defineProps({
 onMounted(async () => 
 {
     try{ 
-      // const { data } = await axios.get('')
-      const { data } = [{"id":3,"item":{"id":7,"title":"Кроссовки Orange Boomb Edition","price":7499,"imageUrl":"/sneakers/sneakers-7.png"}},{"id":4,"item":{"id":8,"title":"Кроссовки Nike Air Max 270","price":15600,"imageUrl":"/sneakers/sneakers-8.png"}},{"id":9,"item":{"id":12,"title":"Кроссовки Converse Chuck Taylor All-Star","price":13000,"imageUrl":"/sneakers/sneakers-12.png"}},{"id":10,"item":{"id":6,"title":"Кроссовки Black Edition","price":16999,"imageUrl":"/sneakers/sneakers-6.png"}}]
+      const { data } = await axios.get('https://2c0c2b705f18f99a.mokky.dev/favorites')
+     
       favorites.value = data.map(obj => obj.item)
       dop.value = data
     }catch(e){
