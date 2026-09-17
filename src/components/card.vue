@@ -3,7 +3,7 @@
 
 
     <div v-auto-animate class="relative transition  dark:bg-slate-700 dark:text-slate-100 dark:border-slate-700 rounded-lg bg-white border justify-center border-slate-100 roundet-3xl p-8 cursor-pointer hover:-translate-y-2 hover:shadow-xl ">
-      <img v-if="onClickFavorite" @click="onClickFavorite" :src="!isFavorite ? `/like-1.png` : `/like-2.png`" class="absolute w-10 dark:bg-slate-700 top-8 left-8 " alt="like 1">
+      <img v-if="onClickFavorite" @click="onClickFavorite" :src="!isFavorite ? `/shoe-store/like-1.png` : `/shoe-store/like-2.png`" class="absolute w-10 dark:bg-slate-700 top-8 left-8 " alt="like 1">
       <img :src="imgUrl" @click="OpenInfoPanelItem" alt="">
 
       <p class=" ms:max-w-[100px] max-w-xs multi-line-truncate ">{{ title }}</p>
@@ -20,7 +20,7 @@
           </div>
 
           <div class="flex alight">
-          <img v-if="onClickAdd" class=" min-w-[10px] max-w-[32px] " @click="onClickAdd" :src="!isAdded ? `/plus.png` : `/checked.svg`" alt="plus">
+          <img v-if="onClickAdd" class=" min-w-[10px] max-w-[32px] " @click="onClickAdd" :src="!isAdded ? `/shoe-store/plus.png` : `/shoe-store/checked.svg`" alt="plus">
           </div>
         </div>
       </div>
